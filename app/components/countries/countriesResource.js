@@ -69,7 +69,7 @@ angular.module('countriesResource', ['ngResource'])
   		console.log ("country factory");
   		console.log( "routeParams.country");
 
-		return $resource(urlcountry, {country: 'AF', maxRows: '1', username:"anitha"},  {
+		return $resource(urlcountry, {maxRows: '1', username:"anitha"},  {
 			query: {
 					isArray: false,
 		            cache: true,
