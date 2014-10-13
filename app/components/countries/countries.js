@@ -39,7 +39,7 @@ angular.module('countries', ['ngRoute','countriesResource'])
 		else
 		{
 			console.log ("Else part");
-			$scope.countryresults = Countryfactory.query({myvar:$routeParams.country});
+			$scope.countryresults = Countryfactory.query({country:$routeParams.country});
 			//		$scope.results = Geonamesfactory.query();			
 		}
 	}]);
