@@ -5,11 +5,11 @@ angular.module('countries', ['ngRoute','countriesResource'])
 				templateUrl: 'components/countries/countries.html',
 				controller: 'CountriesCtrl'
 			})
-			.when('/countries/:country',{
+			.when('/countries/:country/capital',{
 				templateUrl:'components/countries/country-capital.html',
 				controller: 'CountriesCtrl',
 			})
-			.when('/countries/:country/:capital',{
+			.when('/countries/:country/capital',{
 				templateUrl:'components/countries/country-capital.html',
 				controller: 'CountriesCtrl',
 			})
@@ -29,7 +29,7 @@ angular.module('countries', ['ngRoute','countriesResource'])
 		}
 
 		$scope.gopagecountry = function(pagepath){
-			$location.path('/countries/'+ pagepath);
+			$location.path('/countries/'+ pagepath + '/capital');
 		}
 
 		$scope.gopagecaps = function(capital){
@@ -58,9 +58,8 @@ angular.module('countries', ['ngRoute','countriesResource'])
 			$scope.countryresults = Countryfactory.query({country: $routeParams.country});
 
 			Neighborfactory.country = $routeParams.country;
-			//Neighborfactory.query();
 			$scope.neighborresults=[];	
-			//$scope.neighborresults = Neighborfactory.query({country: $routeParams.country});
+			
 			Neighborfactory.query({country: $routeParams.country}).$promise.then(function(neighbors){
 				
 				neighbors.nfdata.forEach(function(neighbor){

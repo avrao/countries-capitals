@@ -1,31 +1,37 @@
-<!-- <h1>country results</h1>
+<!--  <h1>country results</h1>
 {{countryresults.cfdata}}
 <h1>neighbor results</h1>
-{{neighborresults.nfdata}}-->
+{{neighborresults}}
 <h1>capitals results</h1>
-{{capitalresults.capfdata}} <br><br> 
+{{capitalresults.capfdata}} <br><br>  -->
 
+<section class="section4">
+	<button ng-click="gopage('/');">Home</button>
+	<button ng-click="gopage('/countries');">Browse Countries</button>
+</section>
 
 <div ng-repeat="each in countryresults.cfdata ">
-<h1 style="">{{each.countryName}}</h1>
-<h2>Population of the country: {{each.population | number}}square km</h2>
-<h2>Area: {{each.areaInSqKm | number}}</h2>
+	<h1 style="">{{each.countryName}}</h1>
+	<h3>Population of the country: {{each.population | number}} square km</h3>
+	<h3>Area: {{each.areaInSqKm | number}}</h3>
 </div>
+
 <div ng-repeat="each in capitalresults.capfdata">
-<h2>capital: {{each.name}}<br>
-<h2>Population of the Capital: {{each.population}}<br>
+	<h3>Capital: {{each.name}}</h3>
+	<h3>Population of the Capital: {{each.population | number}}</h3>
 </div>
-<h2>3 neighbors:
-<div ng-if="neighborresults.nfdata == 0">No neighbors found in Geonames API</div>
-<div ng-repeat="each in neighborresults | limitTo:'3' ">
 
-<a ng-click="(each.capitalName);" ng-href="#/countries/{{each.countryCode}}">{{each.countryName}}</a>
-</div></div>&nbsp;&nbsp;</h2>
 
-<img id="myImage" ng-src="http://www.geonames.org/img/country/250/" +{{countryresults.cfdata.countryCode | uppercase}}+ ".png" />
+<h3>{{neighborresults.length}} neighbors:</h3>
+<div style="padding-left:25%">
+	<div style="text-align:justify;float:left; margin-right:2%;" ng-repeat="each in neighborresults">
+		<a ng-click="gopagecaps(each.capital);" ng-href="#/countries/{{each.countryCode}}/capital">{{each.countryName}}</a>
+	</div>
+</div>
 
-<img ng-src="http://www.geonames.org/flags/x/" + {{countryresults.cfdata.countryCode}} +".gif" />
-<section class="section4">
-<button ng-click="gopage('/');">Home</button>
-<button ng-click="gopage('/countries');">Browse Countries</button>
-</section>
+<div style="margin-top:10%">
+	<span ng-repeat="each in countryresults.cfdata ">
+	<img width="300" height="300" ng-src="http://www.geonames.org/img/country/250/{{each.countryCode}}.png" />
+	<img width="300" height="300" ng-src="http://www.geonames.org/flags/x/{{each.countryCode | lowercase}}.gif" />
+	</span>
+</div>
