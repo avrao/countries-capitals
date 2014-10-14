@@ -1,6 +1,6 @@
 <hi>countries</h1>
-<div ng-controller="CountriesCtrl">
-<!-- <div ng-repeat="each in results.ccfdata| orderBy:'countryName'">
+<!-- <div>{{results.geonamescfdata}}</div>
+ --><!-- <div ng-repeat="each in results.ccfdata| orderBy:'countryName'">
 {{each.countryCode }}
 </div> -->
 <table style="border:1px solid black;padding:5px;">
@@ -12,13 +12,13 @@
         <th>Population</th>
         <th>Continent</th>
     </theader>
-      <tr ng-repeat="each in results.geonamescfdata | orderBy:'countryName'" ng-model="country" ng-click="gopagecaps(each.countryCode)">     
+      <tr ng-repeat="each in results.geonamescfdata | orderBy:'countryName'" ng-model="country" ng-click="gopagecountry(each.countryCode); gopagecaps(each.capital);">     
         <td>{{each.countryName }}</td>
         <td>{{each.countryCode }}</td>
         <td>{{each.capital }}</td>
         <td>{{each.areaInSqKm | number}}</td>
         <td>{{each.population | number}}</td>
-        <td>{{each.continentName}}</td>
+        <td>{{each.continent}}</td>
     </tr>
     </table>
 <section class="section4">

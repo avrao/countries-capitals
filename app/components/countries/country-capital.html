@@ -1,5 +1,30 @@
-<h1>country capital</h1>
+<!-- <h1>country results</h1>
 {{countryresults.cfdata}}
+<h1>neighbor results</h1>
+{{neighborresults.nfdata}}-->
+<h1>capitals results</h1>
+{{capitalresults.capfdata}} <br><br> 
+
+
+<div ng-repeat="each in countryresults.cfdata ">
+<h1 style="">{{each.countryName}}</h1>
+<h2>Population of the country: {{each.population | number}}square km</h2>
+<h2>Area: {{each.areaInSqKm | number}}</h2>
+</div>
+<div ng-repeat="each in capitalresults.capfdata">
+<h2>capital: {{each.name}}<br>
+<h2>Population of the Capital: {{each.population}}<br>
+</div>
+<h2>3 neighbors:
+<div ng-if="neighborresults.nfdata == 0">No neighbors found in Geonames API</div>
+<div ng-repeat="each in neighborresults | limitTo:'3' ">
+
+<a ng-click="(each.capitalName);" ng-href="#/countries/{{each.countryCode}}">{{each.countryName}}</a>
+</div></div>&nbsp;&nbsp;</h2>
+
+<img id="myImage" ng-src="http://www.geonames.org/img/country/250/" +{{countryresults.cfdata.countryCode | uppercase}}+ ".png" />
+
+<img ng-src="http://www.geonames.org/flags/x/" + {{countryresults.cfdata.countryCode}} +".gif" />
 <section class="section4">
 <button ng-click="gopage('/');">Home</button>
 <button ng-click="gopage('/countries');">Browse Countries</button>

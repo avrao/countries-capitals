@@ -1,1 +1,2 @@
-angular.module('CCApp', ['home', 'countries', 'ngAnimate']);
+angular.module('CCApp', ['home', 'countries']);
+//angular.module('CCApp', ['home', 'countries', 'ngAnimate']);
