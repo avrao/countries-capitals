@@ -1,0 +1,26 @@
+<!-- <div>{{results.geonamescfdata}}</div>
+ --><!-- <div ng-repeat="each in results.ccfdata| orderBy:'countryName'">
+{{each.countryCode }}
+</div> -->
+<section class="section4">
+<button ng-click="gopage('/');">Home</button>
+</section>
+<table style="border:1px solid black;padding:5px;">
+     <theader>
+        <th>Country name</th>
+        <th>Country Code</th>
+        <th>capital</th>
+        <th>Area in km2</th>
+        <th>Population</th>
+        <th>Continent</th>
+    </theader>
+      <tr ng-repeat="each in results.geonamescfdata | orderBy:'countryName'" ng-model="country" ng-click="gopagecountry(each.countryCode); gopagecaps(each.capital);">     
+        <td>{{each.countryName }}</td>
+        <td>{{each.countryCode }}</td>
+        <td>{{each.capital }}</td>
+        <td>{{each.areaInSqKm | number}}</td>
+        <td>{{each.population | number}}</td>
+        <td>{{each.continent}}</td>
+    </tr>
+    </table>
+

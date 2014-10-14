@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="CCApp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Countries-Capitals</title>
+</head>
+<body>
+<header>
+<nav><span class="mainnav">Countries-Capitals</span><hr>
+</nav>
+</header>
+<div ng-class="animate-view-container">
+    <div ng-view class="animate-view"></div>
+</div>
+
+<footer style="margin-top:5%"><hr>
+</footer>   
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js "></script> 
+    <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="./cc-app.js"></script>
+    <script type="text/javascript" src="./components/home/home.js"></script>
+    <script type="text/javascript" src="./components/countries/countries.js"></script>
+    <script type="text/javascript" src="./components/countries/countriesResource.js"></script>
+</body>
+</html>
